@@ -1,4 +1,7 @@
-# fireblogs
+### In Progress...
+
+# Fireblogs App
+Learning to Build a multi-user blog project with Vue.js, Vuex and Firebase
 
 ## Project setup
 ```
