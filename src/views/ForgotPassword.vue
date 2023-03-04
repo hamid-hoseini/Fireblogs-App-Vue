@@ -26,8 +26,8 @@
 
 <script>
 import email from "../assets/Icons/envelope-regular.svg";
-// import Modal from "../components/Modal";
-// import Loading from "../components/Loading";
+import Modal from "../components/Modal";
+import Loading from "../components/Loading";
 export default {
   name: "ForgotPassword",
   data() {
@@ -35,13 +35,13 @@ export default {
       email: "",
       modalActive: false,
       modalMessage: "",
-      loading: null,
+      loading: false,
     };
   },
   components: {
     email,
-    // Modal,
-    // Loading,
+    Modal,
+    Loading,
   },
   methods: {
     closeModal() {
