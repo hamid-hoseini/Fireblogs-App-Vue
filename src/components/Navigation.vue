@@ -9,11 +9,11 @@
           <router-link class="link" :to="{ name: 'Home'}">Home</router-link>
           <router-link class="link" :to="{ name: 'Blogs'}">Blogs</router-link>
           <router-link class="link" to="#">Create Post</router-link>
-          <router-link class="link" :to="{ name: 'Login'}">Login/Register</router-link>
+          <router-link v-if="!user" class="link" :to="{ name: 'Login'}">Login/Register</router-link>
         </ul>
-        <div v-if="!user" class="profile" ref="profile">
+        <div v-if="user" @click="toggleProfileMenu($event)" class="profile" ref="profile">
           <span>{{ this.$store.state.profileInitials }}</span>
-          <div v-show="!profileMenu" class="profile-menu">
+          <div v-show="profileMenu" class="profile-menu">
             <div class="info">
               <p class="initials">{{ this.$store.state.profileInitials }}</p>
               <div class="right">
@@ -50,7 +50,7 @@
         <router-link class="link" :to="{ name: 'Home'}">Home</router-link>
         <router-link class="link" :to="{ name: 'Blogs'}">Blogs</router-link>
         <router-link class="link" to="#">Create Post</router-link>
-        <router-link class="link" :to="{ name: 'Login'}">Login/Register</router-link>
+        <router-link v-if="!user" class="link" :to="{ name: 'Login'}">Login/Register</router-link>
         </ul>
     </transition>
   </header>
@@ -61,6 +61,7 @@ import menuIcon from '../assets/Icons/bars-regular.svg'
 import userIcon from "../assets/Icons/user-alt-light.svg";
 import adminIcon from "../assets/Icons/user-crown-light.svg";
 import signOutIcon from "../assets/Icons/sign-out-alt-regular.svg";
+import firebase from "firebase/app";
 export default {
   name: "navigation",
   components: {
@@ -71,9 +72,11 @@ export default {
   },
   data() {
     return {
+      profileMenu: null,
       mobile: null,
       mobileNav: null,
       windowWitdth: null,
+      admin: null,
     }
   },
   created() {
@@ -93,6 +96,21 @@ export default {
     },
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
+    },
+    toggleProfileMenu(e) {
+      if (e.target === this.$refs.profile) {
+        this.profileMenu = !this.profileMenu;
+      }
+
+    },
+    signOut() {
+      firebase.auth().signOut();
+      window.location.reload();
+    },
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
     }
   }
 };

@@ -44,6 +44,9 @@ export default new Vuex.Store({
       state.profileInitials =
         state.profileFirstName.match(/(\b\S)?/g).join("") + state.profileLastName.match(/(\b\S)?/g).join("");
     },
+    setProfileAdmin() {
+
+    },
   },
   actions: {
     async getCurrentUser({ commit }, user) {
