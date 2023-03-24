@@ -30,7 +30,7 @@
                 </router-link>
               </div>
               <div v-if="!admin" class="option">
-                <router-link class="option" to="#">
+                <router-link class="option"  :to="{ name: 'Admin'}">
                   <adminIcon class="icon" />
                   <p>Admin</p>
                 </router-link>
