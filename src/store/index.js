@@ -14,6 +14,11 @@ export default new Vuex.Store({
       {blogTitle: "Blog Card #3", blogCoverPhoto: "stock-3", blogDate: "Feb 1, 2023"},
       {blogTitle: "Blog Card #4", blogCoverPhoto: "stock-4", blogDate: "Feb 1, 2023"},
     ],
+    blogHTML: "Write your blog title here...",
+    blogTitle: "",
+    blogPhotoName: "",
+    blogPhotoFileURL: null,
+    blogPhotoPreview: null,
     editPost: null,
     user: null,
     profileAdmin: null,
@@ -32,6 +37,10 @@ export default new Vuex.Store({
     updateUser(state, payload) {
       state.user = payload;
     },
+    setProfileAdmin(state, payload) {
+      state.profileAdmin = payload;
+      console.log(state.profileAdmin);
+    }, 
     setProfileInfo(state, doc) {
       state.profileId = doc.id;
       state.profileEmail = doc.data().email;
@@ -52,9 +61,6 @@ export default new Vuex.Store({
     },
     changeUsername(state, payload) {
       state.profileUsername = payload;
-    },
-    setProfileAdmin() {
-
     },
   },
   actions: {
