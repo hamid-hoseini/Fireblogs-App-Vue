@@ -112,9 +112,9 @@ export default {
     user() {
       return this.$store.state.user;
     },
-    admin() {
-      return this.$store.state.profileAdmin;
-    }
+    // admin() {
+    //   return this.$store.state.profileAdmin;
+    // }
   }
 };
 </script>
