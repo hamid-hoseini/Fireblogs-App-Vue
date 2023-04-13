@@ -1,6 +1,6 @@
 <template>
   <div class="create-post">
-    <!-- <BlogCoverPreview v-show="this.$store.state.blogPhotoPreview" /> -->
+    <BlogCoverPreview v-show="this.$store.state.blogPhotoPreview" />
     <Loading v-show="loading" />
     <div class="container">
       <div :class="{ invisible: !error }" class="err-message">
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-// import BlogCoverPreview from "../components/BlogCoverPreview";
+import BlogCoverPreview from "../components/BlogCoverPreview";
 import Loading from "../components/Loading";
 import firebase from "firebase/app";
 import "firebase/storage";
@@ -54,7 +54,7 @@ export default {
     };
   },
   components: {
-    // BlogCoverPreview,
+    BlogCoverPreview,
     Loading,
   },
   methods: {
