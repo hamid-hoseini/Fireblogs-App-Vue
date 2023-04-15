@@ -26,6 +26,7 @@ export default {
 };
 </script>
 
+
 <style lang="scss" scoped>
 .modal {
   top: 0;
