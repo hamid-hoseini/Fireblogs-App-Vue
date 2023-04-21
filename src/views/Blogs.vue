@@ -16,8 +16,11 @@ export default {
   name: "blogs",
   components: { BlogCard },
   computed: {
+    blogPosts() {
+      return this.$store.state.blogPosts;
+    },
     sampleBlogCards() {
-      return this.$store.state.sampleBlogCards
+      return this.$store.state.sampleBlogCards;
     },
     editPost: {
       get() {

@@ -49,6 +49,12 @@ export default {
     };
   },
   computed: {
+    blogPostsFeed() {
+      return this.$store.getters.blogPostsFeed;
+    },
+    blogPostsCards() {
+      return this.$store.getters.blogPostsCards;
+    },
     sampleBlogCards() {
       return this.$store.state.sampleBlogCards
     },
