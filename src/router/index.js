@@ -87,11 +87,12 @@ const routes = [
     },
   },
   {
-    path: "/view-blog",
+    path: "/view-blog/:blogid",
     name: "ViewBlog",
     component: ViewBlog,
     meta: {
       title: 'View Blog Post',
+      requiresAuth: false,
     },
   },
 ];
