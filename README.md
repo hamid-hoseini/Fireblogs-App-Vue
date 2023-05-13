@@ -1,5 +1,3 @@
-### In Progress...
-
 # Fireblogs App
 Learning to Build a multi-user blog project with Vue.js, Vuex and Firebase
 
@@ -26,8 +24,16 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-For Firestore:
+## Dependencies
+  - Firebase [link]()
+  - Tailwind Scrollbar Hide [link]()
+  - React Date Range [link]()
 
+## Note
+
+To have better sequrity on Firestore we need to have the below rule for Firebase Firestore:
+
+```tsx
 service cloud.firestore {
   match /databases/{database}/documents {
     match /users/{userID} {
@@ -40,9 +46,11 @@ service cloud.firestore {
     }
   }
 }
+``` 
 
+Below rule for Firebase Storage:
 
-For Storage:
+```tsx
 service firebase.storage {
   match /b/{bucket}/o {
     match /{allPaths=**} {
@@ -51,3 +59,4 @@ service firebase.storage {
     }
   }
 }
+``` 
